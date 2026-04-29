@@ -47,7 +47,7 @@ export default function BannerSection() {
           type="video/mp4"
         />
       </video>
-      <div className="relative z-10 w-full px-6 pb-6 md:px-12 md:pb-10 flex flex-col gap-4 md:gap-6 mt-auto">
+      <div className="relative z-10 w-full px-6 pb-6 md:px-12 md:pb-10 flex flex-col gap-4 md:gap-6 mt-auto" data-aos="fade-up">
         <div className="flex gap-3 md:gap-4 items-start max-w-[527px] pl-2">
           <img
             src="https://themewagon.github.io/Studiova/assets/images/svgs/primary-leaf.svg"

@@ -6,8 +6,8 @@ export const navBarItems = [
   },
   {
     id: 2,
-    path: "/menu",
-    name: "Menu",
+    path: "/about",
+    name: "About",
   },
   {
     id: 6,
@@ -18,16 +18,12 @@ export const navBarItems = [
       { id: 1, name: "FAQ's", path: "/faq" },
       { id: 2, name: "Gallery", path: "/gallery" },
       { id: 3, name: "About us", path: "/about" },
-      { id: 4, name: "Our Teams", path: "/our-teams" },
-      { id: 5, name: "Our History", path: "/our-history" },
-      { id: 6, name: "Reservation", path: "/reservation" },
-      { id: 7, name: "Testimonial", path: "/testimonial" },
     ]
   },
   {
     id: 3,
-    path: "/shop",
-    name: "Shop",
+    path: "/projects",
+    name: "Projects",
   },
   {
     id: 4,
@@ -36,7 +32,17 @@ export const navBarItems = [
   },
   {
     id: 5,
+    path: "/services",
+    name: "Services",
+  },
+  {
+    id: 6,
     path: "/contact",
     name: "Contact us ",
+  },
+  {
+    id: 7,
+    path: "/projectdetail",
+    name: "Project detail",
   },
 ];

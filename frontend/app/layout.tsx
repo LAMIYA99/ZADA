@@ -4,6 +4,7 @@ import "./globals.css";
 import MainLayout from "@/components/layout/MainLayout";
 import TanstackQueryProvider from "@/providers/TanstackQueryProvider";
 import { Toaster } from "react-hot-toast";
+import AOSInit from "@/components/common/AOSInit";
 
 const fontManrope= Manrope({
   weight: ["400", "700"],
@@ -29,6 +30,7 @@ export default async function RootLayout({
     <html lang={locale}>
       <body className={`${fontManrope.variable} antialiased`}>
           <TanstackQueryProvider>
+            <AOSInit />
             <Toaster position="top-center" />
             <MainLayout>
               {children}

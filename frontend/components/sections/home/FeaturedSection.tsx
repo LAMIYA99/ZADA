@@ -3,7 +3,6 @@
 import { useEffect } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 
-// Icons 
 const ArrowUpRight = ({ className }: { className?: string }) => (
   <svg
     className={className}
@@ -81,7 +80,7 @@ export default function FeaturedSection() {
             </div>
           </div>
           
-          <div className="md:w-full flex justify-center">
+          <div className="md:w-full flex justify-center" data-aos="fade-up">
             <div className="max-w-2xl text-left md:pl-32 lg:pl-0 pt-2 md:pt-0">
               <h2 className="text-[40px] md:text-[48px] lg:text-[58px] font-bold leading-[1.05] tracking-tight mb-5 text-[#1D1D24]">
                 Featured projects
@@ -95,12 +94,10 @@ export default function FeaturedSection() {
         </div>
       </div>
 
-      {/* Embla Carousel */}
       <div className="w-full relative overflow-visible pl-6 md:pl-12 xl:pl-[calc((100vw-1710px)/2+48px)]" ref={emblaRef}>
         <div className="flex touch-pan-y cursor-grab active:cursor-grabbing pb-4 select-none">
           {projects.map((project, idx) => (
             <div key={idx} className="flex-[0_0_auto] w-[397px] min-w-0 mr-8 last:mr-0 group">
-              {/* Card Thumbnail */}
               <div className="relative w-full h-[286px] overflow-hidden mb-6 bg-gray-200">
                 <img 
                   src={project.image} 
@@ -112,7 +109,6 @@ export default function FeaturedSection() {
                   draggable={false}
                 />
                 
-                {/* Top-to-bottom Hover Dark Overlay */}
                 <div className="absolute top-0 left-0 w-full h-0 bg-black/60 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] overflow-hidden group-hover:h-full flex items-center justify-center">
                   <div className="w-16 h-16 rounded-full bg-[#C1FE72] flex items-center justify-center translate-y-12 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] delay-75">
                     <ArrowUpRight className="w-6 h-6 text-[#1D1D24]" />
@@ -120,7 +116,6 @@ export default function FeaturedSection() {
                 </div>
               </div>
 
-              {/* Card Content */}
               <div className="flex flex-col items-start">
                 <h3 className="text-[36px] font-bold mb-4 text-[#1D1D24] tracking-tight">{project.title}</h3>
                 <div className="flex flex-wrap gap-2">

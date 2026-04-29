@@ -29,78 +29,76 @@ export default function Footer() {
   };
 
   return (
-    <footer className="w-full bg-[#1F2427] text-white">
+    <footer className="w-full bg-[#21282C] text-white">
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 pt-28 pb-10">
         
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-8 mb-32">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-0 mb-32">
           
-          <div className="lg:col-span-6 flex flex-col">
-            <h2 className="text-[44px] md:text-[56px] lg:text-[60px] font-bold leading-[1.1] mb-12 max-w-sm">
+          {/* Left Side: Title & Contact */}
+          <div className="col-span-1 sm:col-span-2 lg:col-span-4 flex flex-col">
+            <h2 className="text-[44px] md:text-[56px] lg:text-[64px] font-bold leading-[1.05] tracking-tight mb-12">
               Build something<br />together?
             </h2>
-            <div className="flex flex-col gap-5">
+            <div className="flex flex-col gap-4">
               <a 
                 href="mailto:info@wrappixel.com" 
-                className="flex items-center gap-3 text-white hover:text-[#C1FE72] transition-colors text-[16px]"
+                className="flex items-center gap-3 text-gray-200 hover:text-white transition-colors text-[15px]"
               >
-                <ArrowUpRight className="w-[18px] h-[18px] text-[#C1FE72]" />
+                <ArrowUpRight className="w-5 h-5 text-[#CFFF70]" />
                 info@wrappixel.com
               </a>
               <a 
                 href="#" 
-                className="flex items-center gap-3 text-white hover:text-[#C1FE72] transition-colors text-[16px]"
+                className="flex items-center gap-3 text-gray-200 hover:text-white transition-colors text-[15px]"
               >
-                <LocationPin className="w-[18px] h-[18px] text-[#C1FE72]" />
+                <LocationPin className="w-5 h-5 text-[#CFFF70]" />
                 info@wrappixel.com
               </a>
             </div>
           </div>
 
-          <div className="lg:col-span-6 grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-4 mt-4">
-            
-            <div className="flex flex-col gap-4">
-              {['Home', 'About', 'Services', 'Work', 'Terms', 'Privacy Policy', 'Error 404'].map(link => (
-                <Link 
-                  key={link} 
-                  href="#" 
-                  className="text-gray-200 hover:text-white transition-colors text-[15px]"
-                >
-                  {link}
-                </Link>
-              ))}
-            </div>
-
-            <div className="flex flex-col gap-4">
-              {['Facebook', 'Instagram', 'Twitter'].map(link => (
-                <Link 
-                  key={link} 
-                  href="#" 
-                  className="text-gray-200 hover:text-white transition-colors text-[15px]"
-                >
-                  {link}
-                </Link>
-              ))}
-            </div>
-
-            <div className="text-gray-400 text-[14px]">
-              © Studiova copyright 2025
-            </div>
-            
+          {/* Middle Side: Pages */}
+          <div className="lg:col-span-2 lg:col-start-6 flex flex-col gap-3 lg:mt-[10px]">
+            {['Home', 'About', 'Services', 'Work', 'Terms', 'Privacy Policy', 'Error 404'].map(link => (
+              <a 
+                key={link} 
+                href="#" 
+                className="text-[#DFDFDF] hover:text-white transition-colors text-[15px]"
+              >
+                {link}
+              </a>
+            ))}
           </div>
+
+          {/* Right-Middle Side: Socials */}
+          <div className="lg:col-span-2 flex flex-col gap-3 lg:mt-[10px]">
+            {['Facebook', 'Instagram', 'Twitter'].map(link => (
+              <a 
+                key={link} 
+                href="#" 
+                className="text-[#DFDFDF] hover:text-white transition-colors text-[15px]"
+              >
+                {link}
+              </a>
+            ))}
+          </div>
+
+          {/* Far Right Side: Copyright */}
+          <div className="lg:col-span-3 lg:text-right lg:mt-[10px]">
+            <p className="text-[#DFDFDF] text-[14px]">
+              © Studiova copyright 2025
+            </p>
+          </div>
+          
         </div>
 
-        <div className="relative flex justify-center items-center w-full">
-          <p className="text-gray-400 text-[13px]">
-            Distributed by <span className="font-semibold text-white">ThemeWagon</span>
+        {/* Bottom Section */}
+        <div className="relative flex justify-center items-center w-full mt-24">
+          <p className="text-[#DFDFDF] text-[14px]">
+            Distributed by <span className="text-white">ThemeWagon</span>
           </p>
           
-          <button 
-            onClick={scrollToTop}
-            className="absolute right-0 bottom-0 translate-y-2 w-12 h-12 bg-[#C1FE72] rounded-full flex items-center justify-center transition-transform hover:-translate-y-1"
-            aria-label="Scroll to top"
-          >
-            <ArrowUp className="w-5 h-5 text-black" />
-          </button>
+       
         </div>
 
       </div>

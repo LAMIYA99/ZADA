@@ -52,9 +52,7 @@ export default function WhatSection() {
     <section className="w-full bg-[#1F2A2E] text-white py-24 lg:py-32">
       <div className="max-w-[1710px] mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-[1fr_2fr] xl:grid-cols-[1fr_2.5fr] gap-12 lg:gap-24">
         
-        {/* Left Side */}
         <div className="flex flex-col">
-          {/* Indicator */}
           <div className="flex items-center gap-3 lg:gap-4 mb-16 lg:mb-32">
             <div className="w-8 h-8 lg:w-9 lg:h-9 rounded-full bg-[#C1FE72] flex items-center justify-center text-[12px] lg:text-sm font-semibold text-[#1D1D24]">
               03
@@ -65,7 +63,6 @@ export default function WhatSection() {
             </div>
           </div>
           
-          {/* Active Image Container */}
           <div className="relative w-full aspect-[4/2.8] md:w-[400px] md:aspect-[4/2.8] lg:w-full overflow-hidden shadow-2xl">
             {services.map((service, i) => (
               <img 
@@ -81,20 +78,18 @@ export default function WhatSection() {
           </div>
         </div>
 
-        {/* Right Side */}
         <div className="flex flex-col">
           <div className="mb-12">
-            <h2 className="text-[40px] md:text-[56px] lg:text-[58px] font-bold leading-[1.05] tracking-tight mb-5 text-white">
+            <h2 className="text-[40px] md:text-[56px] lg:text-[58px] font-bold leading-[1.05] tracking-tight mb-5 text-white" data-aos="fade-up">
               What we do
             </h2>
-            <p className="text-gray-400 text-[16px] lg:text-[16px] leading-relaxed max-w-[550px]">
+            <p className="text-gray-400 text-[16px] lg:text-[16px] leading-relaxed max-w-[550px]" data-aos="fade-up" data-aos-delay="100">
               A glimpse into our creativity—exploring innovative designs, successful collaborations, and transformative digital experiences.
             </p>
           </div>
 
           <div className="w-full h-[1px] bg-white/10 mb-2"></div>
 
-          {/* List of Services */}
           <div className="flex flex-col">
             {services.map((service, i) => {
               const isActive = activeService === i;
@@ -115,7 +110,6 @@ export default function WhatSection() {
             })}
           </div>
 
-          {/* Button */}
           <div className="mt-14 flex justify-start">
              <Link
                 href="#"

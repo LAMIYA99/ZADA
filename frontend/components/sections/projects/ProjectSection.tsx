@@ -1,7 +1,5 @@
 
-
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
 
 const ArrowUpRightIcon = ({ className }: { className?: string }) => (
   <svg
@@ -22,11 +20,11 @@ const ArrowUpRightIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
-export default function ContactForm() {
-  return (
-    <section className="relative w-full h-[85vh] min-h-[600px] lg:min-h-[800px] overflow-hidden flex flex-col justify-end bg-black">
+export default function ProjectSection() {
+    return (
+   <section className="relative w-full h-[85vh] min-h-[600px] lg:min-h-[800px] overflow-hidden flex flex-col justify-end bg-black">
       <img
-        src="https://images.pexels.com/photos/29159827/pexels-photo-29159827.jpeg"
+        src="https://images.pexels.com/photos/37093500/pexels-photo-37093500.jpeg"
         alt="Contact Background"
         className="absolute top-0 left-0 w-full h-full object-cover z-0 opacity-60 mix-blend-overlay lg:object-top"
       />
@@ -40,14 +38,12 @@ export default function ContactForm() {
             className="w-10 h-10 shrink-0 mt-1 animate-[spin_1.5s_linear_infinite]"
           />
           <p className="text-gray-300 text-[18px] leading-relaxed">
-            Ready to <span className="text-[#C4F252] font-medium">start something</span> great? Reach out we'd love to
-            hear from you.
-          </p>
+      A <span className="text-[#C4F252] font-medium">showcase of creativity</span> , strategy, and results explore <br /> the projects that define us. </p>
         </div>
 
         <div className="flex items-end gap-2 md:gap-5">
           <h1 className="text-[80px] sm:text-[100px] md:text-[140px] lg:text-[128px] font-bold text-white leading-[0.8] tracking-tight m-0">
-            Contact
+     Projects
           </h1>
           <Link
             href="#"
@@ -60,5 +56,5 @@ export default function ContactForm() {
         </div>
       </div>
     </section>
-  );
+    );
 }
