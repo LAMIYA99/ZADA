@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { ThemeToggle } from "@/components/features/ThemeToggle";
 
 const SnowflakeIcon = ({ className }: { className?: string }) => (
   <svg
@@ -23,6 +24,10 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
 
+  // Pages that have a white background at the top and need a dark header from the start
+  const isLightPage = ["/blog", "/projects", "/services", "/about", "/contact"].includes(pathname);
+  const useDarkStyle = isScrolled || isLightPage;
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
@@ -41,15 +46,16 @@ const Header = () => {
     { name: "Blog", path: "/blog" },
     { name: "Services", path: "/services" },
     { name: "Contact", path: "/contact" },
-    { name: "Docs", path: "/docs" },
   ];
 
   return (
     <>
-      <header className={`fixed top-0 left-0 w-full z-40 px-6 py-6 md:px-12 flex justify-between items-center transition-colors duration-300 ${isScrolled ? 'bg-[#C1FE72]' : 'bg-transparent'}`}>
+      <header className={`fixed top-0 left-0 w-full z-9999 px-6 py-6 md:px-12 flex justify-between items-center transition-all duration-300 ${
+        isScrolled ? 'bg-[#C1FE72] py-4' : (isLightPage ? 'bg-white backdrop-blur-md border-b border-gray-100' : 'bg-transparent')
+      }`}>
         <Link href="/">
           <Image
-            src={isScrolled ? "https://themewagon.github.io/Studiova/assets/images/logos/logo-dark.svg" : "https://themewagon.github.io/Studiova/assets/images/logos/logo-white.svg"}
+            src={useDarkStyle ? "https://themewagon.github.io/Studiova/assets/images/logos/logo-dark.svg" : "https://themewagon.github.io/Studiova/assets/images/logos/logo-white.svg"}
             alt="Studiova Logo"
             width={196}
             height={54}
@@ -57,15 +63,54 @@ const Header = () => {
             unoptimized
           />
         </Link>
-        <button
-          onClick={toggleMenu}
-          className={`w-12 h-12 rounded-full flex flex-col items-center justify-center gap-1.5 transition-all duration-300 group ${isScrolled ? 'bg-[#1D1D24] text-white hover:bg-black' : 'bg-white text-black hover:bg-[#1D1D24] hover:text-white backdrop-blur-md'}`}
-          aria-label="Toggle Menu"
-        >
-          <span className={`block h-[2px] w-5 transition-colors ${isScrolled ? 'bg-white' : 'bg-[#1D1D24] group-hover:bg-white'}`}></span>
-          <span className={`block h-[2px] w-5 transition-colors ${isScrolled ? 'bg-white' : 'bg-[#1D1D24] group-hover:bg-white'}`}></span>
-          <span className={`block h-[2px] w-5 transition-colors ${isScrolled ? 'bg-white' : 'bg-[#1D1D24] group-hover:bg-white'}`}></span>
-        </button>
+
+        {/* Desktop Navigation */}
+        <nav className="hidden lg:flex items-center gap-10">
+          {menuItems.map((item) => (
+            <Link
+              key={item.name}
+              href={item.path}
+              className={`text-[16px] font-bold transition-colors ${
+                useDarkStyle 
+                  ? (pathname === item.path ? 'text-[#1D1D24] dark:text-white' : 'text-[#1D1D24]/60 dark:text-white/60 hover:text-[#1D1D24] dark:hover:text-white') 
+                  : (pathname === item.path ? 'text-white' : 'text-white/70 hover:text-white')
+              }`}
+            >
+              {item.name}
+            </Link>
+          ))}
+          <div className="flex items-center gap-4 ml-6">
+            <ThemeToggle />
+            <button className={`px-6 py-2 rounded-full border text-[15px] font-bold transition-all ${
+              useDarkStyle 
+                ? 'border-[#1D1D24]/20 dark:border-white/20 text-[#1D1D24] dark:text-white hover:bg-[#1D1D24] dark:hover:bg-white hover:text-white dark:hover:text-[#1D1D24]' 
+                : 'border-white/20 text-white hover:bg-white hover:text-[#1D1D24]'
+            }`}>
+              Sign In
+            </button>
+            <button className={`px-6 py-2 rounded-full text-[15px] font-bold transition-all ${
+              isScrolled 
+                ? 'bg-[#1D1D24] dark:bg-white text-white dark:text-[#1D1D24] hover:bg-black dark:hover:bg-gray-200' 
+                : (isLightPage ? 'bg-[#1D1D24] dark:bg-white text-white dark:text-[#1D1D24] hover:bg-black dark:hover:bg-gray-200' : 'bg-[#C1FE72] text-[#1D1D24] hover:bg-[#aee63a]')
+            }`}>
+              Sign Up
+            </button>
+          </div>
+        </nav>
+
+        {/* Mobile Header Actions */}
+        <div className="flex lg:hidden items-center gap-4">
+          <ThemeToggle />
+          <button
+            onClick={toggleMenu}
+            className={`w-12 h-12 rounded-full flex flex-col items-center justify-center gap-1.5 transition-all duration-300 group ${useDarkStyle ? 'bg-[#1D1D24] dark:bg-white text-white dark:text-[#1D1D24] hover:bg-black' : 'bg-white text-black hover:bg-[#1D1D24] hover:text-white backdrop-blur-md'}`}
+            aria-label="Toggle Menu"
+          >
+            <span className={`block h-[2px] w-5 transition-colors ${useDarkStyle ? 'bg-white dark:bg-[#1D1D24]' : 'bg-[#1D1D24] group-hover:bg-white'}`}></span>
+            <span className={`block h-[2px] w-5 transition-colors ${useDarkStyle ? 'bg-white dark:bg-[#1D1D24]' : 'bg-[#1D1D24] group-hover:bg-white'}`}></span>
+            <span className={`block h-[2px] w-5 transition-colors ${useDarkStyle ? 'bg-white dark:bg-[#1D1D24]' : 'bg-[#1D1D24] group-hover:bg-white'}`}></span>
+          </button>
+        </div>
       </header>
 
       {/* Overlay */}
@@ -80,15 +125,15 @@ const Header = () => {
 
       {/* Drawer */}
       <div
-        className={`fixed top-4 right-4 bottom-4 w-[380px] sm:w-[400px] h-[576px] bg-white rounded-3xl z-50 flex flex-col overflow-hidden transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+        className={`fixed top-4 right-4 bottom-4 w-[380px] sm:w-[400px] h-[576px] bg-white dark:bg-[#1D1D24] rounded-3xl z-50 flex flex-col overflow-hidden transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
           isMenuOpen ? "translate-x-0" : "translate-x-[120%]"
         }`}
       >
-        <div className="flex justify-between items-center p-6 border-b border-gray-100">
-          <span className="text-gray-600 font-medium text-sm">Menu</span>
+        <div className="flex justify-between items-center p-6 border-b border-gray-100 dark:border-gray-800">
+          <span className="text-gray-600 dark:text-gray-400 font-medium text-sm">Menu</span>
           <button
             onClick={toggleMenu}
-            className="text-gray-500 hover:text-black transition-colors"
+            className="text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors"
           >
             <svg
               width="24"
@@ -113,7 +158,7 @@ const Header = () => {
               <Link
                 key={item.name}
                 href={item.path}
-                className="text-[24px] font-bold text-[#1D1D24] flex items-center group transition-colors hover:text-gray-600"
+                className="text-[24px] font-bold text-[#1D1D24] dark:text-white flex items-center group transition-colors hover:text-gray-600 dark:hover:text-gray-400"
               >
                 <SnowflakeIcon
                   className={`w-5 h-5 mr-3 transition-all duration-300 ${
@@ -130,23 +175,23 @@ const Header = () => {
 
         <div className="px-8 pb-10 flex flex-col gap-2">
           <div className="flex gap-4">
-            <button className="flex-1 px-3 py-2 rounded-full border border-gray-200 text-[20px] font-semibold hover:bg-gray-50 transition-colors">
+            <button className="flex-1 px-3 py-2 rounded-full border border-gray-200 dark:border-gray-800 text-[20px] font-semibold hover:bg-gray-50 dark:hover:bg-gray-800 text-[#1D1D24] dark:text-white transition-colors">
               Sign In
             </button>
-            <button className="flex-1 px-3.5 py-2 rounded-[30px] bg-[#1D1D24] text-white text-[20px] font-semibold hover:bg-black transition-colors">
+            <button className="flex-1 px-3.5 py-2 rounded-[30px] bg-[#1D1D24] dark:bg-white text-white dark:text-[#1D1D24] text-[20px] font-semibold hover:bg-black dark:hover:bg-gray-200 transition-colors">
               Sign Up
             </button>
           </div>
-          <div className="text-[16px] text-gray-500 flex flex-col">
+          <div className="text-[16px] text-gray-500 dark:text-gray-400 flex flex-col">
             <a
               href="tel:+1-212-456-7890"
-              className="hover:text-black transition-colors"
+              className="hover:text-black dark:hover:text-white transition-colors"
             >
               +1-212-456-7890
             </a>
             <a
               href="mailto:info@wrappixel.com"
-              className="hover:text-black font-semibold transition-colors text-[28px] text-[#1D1D24]"
+              className="hover:text-black dark:hover:text-white font-semibold transition-colors text-[28px] text-[#1D1D24] dark:text-white"
             >
               info@wrappixel.com
             </a>

@@ -3,11 +3,11 @@ import PresenceSection from "@/components/sections/about/PresenceSection";
 import MeetSection from "@/components/sections/home/MeetSection";
 
 export default function AboutPage() {
-    return (
-   <>
-    <AboutSection />
-   <PresenceSection/>
-   <MeetSection/>
-   </>
-    );
+  return (
+    <>
+      <AboutSection />
+      <PresenceSection />
+      <MeetSection />
+    </>
+  );
 }

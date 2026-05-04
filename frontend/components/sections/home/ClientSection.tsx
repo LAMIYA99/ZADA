@@ -1,16 +1,16 @@
 export default function ClientSection() {
     return (
-        <section className="bg-[#F4F8FA] py-20 px-4 md:px-8 lg:px-10 relative">
+        <section className="bg-[#F4F8FA] dark:bg-black py-20 px-4 md:px-8 lg:px-10 relative transition-colors duration-300">
             <div className=" mx-auto">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16 items-start">
                     <div className="lg:col-span-4 flex items-center gap-4">
                         <span className="w-10 h-10 rounded-full bg-[#CFFF70] flex items-center justify-center font-medium text-sm text-[#1A202C]">05</span>
-                        <div className="w-12 h-[1px] bg-gray-300"></div>
-                        <span className="px-5 py-2 bg-[#21282C] text-white rounded-full text-sm font-medium">Testimonial</span>
+                        <div className="w-12 h-[1px] bg-gray-300 dark:bg-gray-700"></div>
+                        <span className="px-5 py-2 bg-[#21282C] dark:bg-white text-white dark:text-[#1D1D24] rounded-full text-sm font-medium">Testimonial</span>
                     </div>
                     <div className="lg:col-span-6 lg:col-start-5" data-aos="fade-up">
-                        <h2 className="text-4xl md:text-[40px] font-semibold mb-4 text-[#1A202C]">Stories from clients</h2>
-                        <p className="text-gray-500 text-lg">
+                        <h2 className="text-4xl md:text-[40px] font-semibold mb-4 text-[#1A202C] dark:text-white">Stories from clients</h2>
+                        <p className="text-gray-500 dark:text-gray-400 text-lg">
                             Real experiences, genuine feedback—discover how our creative solutions have transformed brands and elevated businesses.
                         </p>
                     </div>
@@ -35,7 +35,7 @@ export default function ClientSection() {
                         </div>
                     </div>
 
-                    <div className="bg-[#21282C] col-span-6 p-10 flex flex-col justify-between h-[408px] relative" data-aos="fade-up" data-aos-delay="200">
+                    <div className="bg-[#21282C] dark:bg-[#1A1A1A] col-span-6 p-10 flex flex-col justify-between h-[408px] relative" data-aos="fade-up" data-aos-delay="200">
                         <div>
                             <p className="text-sm text-gray-400 mb-6">Hear from them</p>
                             <h3 className="text-2xl font-semibold text-white leading-snug mb-4">
@@ -71,20 +71,20 @@ export default function ClientSection() {
                         </div>
                     </div>
 
-                    <div className="bg-white p-10 col-span-3 flex flex-col justify-between h-[408px]" data-aos="fade-up" data-aos-delay="300">
+                    <div className="bg-white dark:bg-[#1D1D24] border border-transparent dark:border-gray-800 p-10 col-span-3 flex flex-col justify-between h-[408px]" data-aos="fade-up" data-aos-delay="300">
                         <div>
-                            <p className="text-sm text-gray-500 mb-6">Hear from them</p>
-                            <h3 className="text-2xl font-semibold text-[#1A202C] leading-snug">
+                            <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">Hear from them</p>
+                            <h3 className="text-2xl font-semibold text-[#1A202C] dark:text-white leading-snug">
                                 Super smooth process with incredible results. highly recommend!
                             </h3>
                         </div>
                         <div className="flex items-center gap-4 mt-8">
-                            <div className="w-12 h-12 rounded-full overflow-hidden relative bg-black/10">
+                            <div className="w-12 h-12 rounded-full overflow-hidden relative bg-black/10 dark:bg-white/10">
                                 <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Jenny Wilson" className="object-cover w-full h-full" />
                             </div>
                             <div>
-                                <h4 className="font-semibold text-[#1A202C]">Jenny Wilson</h4>
-                                <p className="text-sm text-gray-500">Pizza Hut</p>
+                                <h4 className="font-semibold text-[#1A202C] dark:text-white">Jenny Wilson</h4>
+                                <p className="text-sm text-gray-500 dark:text-gray-400">Pizza Hut</p>
                             </div>
                         </div>
                     </div>

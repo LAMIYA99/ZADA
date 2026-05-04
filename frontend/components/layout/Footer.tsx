@@ -29,7 +29,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="w-full bg-[#21282C] text-white">
+    <footer className="w-full bg-[#21282C] dark:bg-black text-white transition-colors duration-300">
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 pt-28 pb-10">
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-0 mb-32">
@@ -42,14 +42,14 @@ export default function Footer() {
             <div className="flex flex-col gap-4">
               <a 
                 href="mailto:info@wrappixel.com" 
-                className="flex items-center gap-3 text-gray-200 hover:text-white transition-colors text-[15px]"
+                className="flex items-center gap-3 text-gray-200 dark:text-gray-400 hover:text-white transition-colors text-[15px]"
               >
                 <ArrowUpRight className="w-5 h-5 text-[#CFFF70]" />
                 info@wrappixel.com
               </a>
               <a 
                 href="#" 
-                className="flex items-center gap-3 text-gray-200 hover:text-white transition-colors text-[15px]"
+                className="flex items-center gap-3 text-gray-200 dark:text-gray-400 hover:text-white transition-colors text-[15px]"
               >
                 <LocationPin className="w-5 h-5 text-[#CFFF70]" />
                 info@wrappixel.com
@@ -63,7 +63,7 @@ export default function Footer() {
               <a 
                 key={link} 
                 href="#" 
-                className="text-[#DFDFDF] hover:text-white transition-colors text-[15px]"
+                className="text-[#DFDFDF] dark:text-gray-400 hover:text-white transition-colors text-[15px]"
               >
                 {link}
               </a>
@@ -76,7 +76,7 @@ export default function Footer() {
               <a 
                 key={link} 
                 href="#" 
-                className="text-[#DFDFDF] hover:text-white transition-colors text-[15px]"
+                className="text-[#DFDFDF] dark:text-gray-400 hover:text-white transition-colors text-[15px]"
               >
                 {link}
               </a>
@@ -85,7 +85,7 @@ export default function Footer() {
 
           {/* Far Right Side: Copyright */}
           <div className="lg:col-span-3 lg:text-right lg:mt-[10px]">
-            <p className="text-[#DFDFDF] text-[14px]">
+            <p className="text-[#DFDFDF] dark:text-gray-500 text-[14px]">
               © Studiova copyright 2025
             </p>
           </div>
@@ -94,7 +94,7 @@ export default function Footer() {
 
         {/* Bottom Section */}
         <div className="relative flex justify-center items-center w-full mt-24">
-          <p className="text-[#DFDFDF] text-[14px]">
+          <p className="text-[#DFDFDF] dark:text-gray-500 text-[14px]">
             Distributed by <span className="text-white">ThemeWagon</span>
           </p>
           

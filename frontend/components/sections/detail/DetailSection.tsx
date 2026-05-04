@@ -38,9 +38,12 @@ export default function DetailSection() {
       <img
         src={article.image}
         alt={article.title}
-        className="absolute top-0 left-0 w-full h-full object-cover z-0 opacity-60 mix-blend-overlay lg:object-top"
+        className="absolute top-0 left-0 w-full h-full object-center object-cover z-0 opacity-80"
+        onError={(e) => {
+          e.currentTarget.src = "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop";
+        }}
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20 z-0 pointer-events-none"></div>
+      <div className="absolute inset-0 bg-black/40 z-0 pointer-events-none"></div>
 
       <div className="relative z-10 w-full px-6 pb-12 md:px-12 md:pb-24 lg:pb-32 flex flex-col gap-4 md:gap-6 mt-auto">
         <div className="flex gap-3 md:gap-4 items-start max-w-[420px] pl-2">

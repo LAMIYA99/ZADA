@@ -110,17 +110,7 @@ export default function WhatSection() {
             })}
           </div>
 
-          <div className="mt-14 flex justify-start">
-             <Link
-                href="#"
-                className="w-[180px] h-[60px] rounded-[30px] bg-[#C1FE72] flex items-center justify-between p-1.5 pl-6 group transition-colors duration-300 hover:bg-[#aee63a]"
-              >
-                <span className="font-semibold text-[#1D1D24] text-[15px]">See our Work</span>
-                <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center transition-transform duration-300 group-hover:scale-95">
-                  <ArrowUpRight className="w-5 h-5 text-[#1D1D24] group-hover:rotate-45 transition-transform duration-300" />
-                </div>
-              </Link>
-          </div>
+    
         </div>
 
       </div>

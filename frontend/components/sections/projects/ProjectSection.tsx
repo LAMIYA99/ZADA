@@ -26,7 +26,7 @@ export default function ProjectSection() {
       <img
         src="https://images.pexels.com/photos/37093500/pexels-photo-37093500.jpeg"
         alt="Contact Background"
-        className="absolute top-0 left-0 w-full h-full object-cover z-0 opacity-60 mix-blend-overlay lg:object-top"
+        className="absolute top-0 left-0 w-full h-full object-cover object-center z-0 opacity-80"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20 z-0 pointer-events-none"></div>
 
