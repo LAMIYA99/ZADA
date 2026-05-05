@@ -29,8 +29,8 @@ export default async function RootLayout({
 
   return (
     <html lang={locale} suppressHydrationWarning>
-      <body className={`${fontManrope.variable} antialiased bg-white dark:bg-[#1D1D24] text-gray-900 dark:text-gray-100 transition-colors duration-300`}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+      <body className={`${fontManrope.variable} antialiased bg-white dark:bg-[#1D1D24] text-gray-900 dark:text-gray-100 transition-colors duration-500`}>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <TanstackQueryProvider>
             <AOSInit />
             <Toaster position="top-center" />

@@ -80,7 +80,7 @@ const Header = () => {
             </Link>
           ))}
           <div className="flex items-center gap-4 ml-6">
-            <ThemeToggle />
+            <ThemeToggle lightContent={!useDarkStyle} isScrolled={isScrolled} />
             <button className={`px-6 py-2 rounded-full border text-[15px] font-bold transition-all ${
               useDarkStyle 
                 ? 'border-[#1D1D24]/20 dark:border-white/20 text-[#1D1D24] dark:text-white hover:bg-[#1D1D24] dark:hover:bg-white hover:text-white dark:hover:text-[#1D1D24]' 
@@ -100,7 +100,7 @@ const Header = () => {
 
         {/* Mobile Header Actions */}
         <div className="flex lg:hidden items-center gap-4">
-          <ThemeToggle />
+          <ThemeToggle lightContent={!useDarkStyle} isScrolled={isScrolled} />
           <button
             onClick={toggleMenu}
             className={`w-12 h-12 rounded-full flex flex-col items-center justify-center gap-1.5 transition-all duration-300 group ${useDarkStyle ? 'bg-[#1D1D24] dark:bg-white text-white dark:text-[#1D1D24] hover:bg-black' : 'bg-white text-black hover:bg-[#1D1D24] hover:text-white backdrop-blur-md'}`}
