@@ -16,11 +16,10 @@ export default function MainLayout({
   const isAdmin = pathname?.startsWith("/admin");
 
   useEffect(() => {
-    // Show loading screen on route change
     setIsLoading(true);
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 800); // Brief delay for a premium feel
+    }, 800); 
 
     return () => clearTimeout(timer);
   }, [pathname]);
