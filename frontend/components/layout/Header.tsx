@@ -5,6 +5,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { ThemeToggle } from "@/components/features/ThemeToggle";
+import { useTheme } from "next-themes";
+
 
 const SnowflakeIcon = ({ className }: { className?: string }) => (
   <svg
@@ -23,6 +25,9 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
+  const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
 
   const isLightPage = ["/blog", "/projects", "/services", "/about", "/contact"].includes(pathname);
   const useDarkStyle = isScrolled || isLightPage;
@@ -33,8 +38,12 @@ const Header = () => {
     };
     window.addEventListener("scroll", handleScroll);
     handleScroll();
+    setMounted(true);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const isDarkMode = mounted && resolvedTheme === "dark";
+
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
@@ -54,8 +63,9 @@ const Header = () => {
       }`}>
         <Link href="/">
           <Image
-            src={useDarkStyle ? "https://themewagon.github.io/Studiova/assets/images/logos/logo-dark.svg" : "https://themewagon.github.io/Studiova/assets/images/logos/logo-white.svg"}
+            src={(useDarkStyle && !isDarkMode) ? "https://themewagon.github.io/Studiova/assets/images/logos/logo-dark.svg" : "https://themewagon.github.io/Studiova/assets/images/logos/logo-white.svg"}
             alt="Studiova Logo"
+
             width={196}
             height={54}
             className="h-14 w-auto"
