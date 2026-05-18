@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 
 const ArrowUpRightIcon = ({ className }: { className?: string }) => (
   <svg

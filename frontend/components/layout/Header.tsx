@@ -1,11 +1,11 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import Link from "next/link";
+import { useState, useEffect, useTransition } from "react";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
 import { ThemeToggle } from "@/components/features/ThemeToggle";
 import { useTheme } from "next-themes";
+import { Link, usePathname, useRouter } from "@/i18n/routing";
+import { useTranslations, useLocale } from "next-intl";
 
 
 const SnowflakeIcon = ({ className }: { className?: string }) => (
@@ -27,7 +27,16 @@ const Header = () => {
   const pathname = usePathname();
   const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const t = useTranslations("Navigation");
+  const locale = useLocale();
+  const router = useRouter();
+  const [isPending, startTransition] = useTransition();
 
+  const handleLocaleChange = (newLocale: string) => {
+    startTransition(() => {
+      router.replace(pathname, { locale: newLocale });
+    });
+  };
 
   const isLightPage = ["/blog", "/projects", "/services", "/about", "/contact"].includes(pathname);
   const useDarkStyle = isScrolled || isLightPage;
@@ -48,12 +57,18 @@ const Header = () => {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   const menuItems = [
-    { name: "Home", path: "/" },
-    { name: "About", path: "/about" },
-    { name: "Projects", path: "/projects" },
-    { name: "Blog", path: "/blog" },
-    { name: "Services", path: "/services" },
-    { name: "Contact", path: "/contact" },
+    { name: t("Home"), path: "/" },
+    { name: t("About"), path: "/about" },
+    { name: t("Projects"), path: "/projects" },
+    { name: t("Blog"), path: "/blog" },
+    { name: t("Services"), path: "/services" },
+    { name: t("Contact"), path: "/contact" },
+  ];
+
+  const languages = [
+    { code: 'az', label: 'AZ' },
+    { code: 'en', label: 'EN' },
+    { code: 'ru', label: 'RU' }
   ];
 
   return (
@@ -89,11 +104,62 @@ const Header = () => {
           ))}
           <div className="flex items-center gap-4 ml-6">
             <ThemeToggle lightContent={!useDarkStyle} isScrolled={isScrolled} />
-        
+            <div className="relative group ml-2 border-l border-gray-300 dark:border-gray-700 pl-4 py-1">
+              <button
+                className={`flex items-center gap-1 transition-colors text-[14px] font-bold ${
+                  useDarkStyle ? 'text-[#1D1D24] dark:text-white' : 'text-white'
+                }`}
+              >
+                {languages.find(l => l.code === locale)?.label || 'AZ'}
+                <svg className="w-4 h-4 transition-transform duration-200 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
+              </button>
+              <div className="absolute top-full left-0 mt-2 w-20 bg-white dark:bg-[#1D1D24] shadow-lg rounded-xl overflow-hidden opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 border border-gray-100 dark:border-gray-800">
+                {languages.map((lng) => (
+                  <button
+                    key={lng.code}
+                    onClick={() => handleLocaleChange(lng.code)}
+                    disabled={isPending}
+                    className={`w-full text-center px-4 py-2 text-[14px] font-bold transition-colors ${
+                      locale === lng.code
+                        ? 'bg-gray-100 dark:bg-gray-800 text-[#1D1D24] dark:text-white'
+                        : 'text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800/50 hover:text-[#1D1D24] dark:hover:text-white'
+                    }`}
+                  >
+                    {lng.label}
+                  </button>
+                ))}
+              </div>
+            </div>
           </div>
         </nav>
 
         <div className="flex lg:hidden items-center gap-4">
+            <div className="relative group mr-2">
+              <button
+                className={`flex items-center gap-1 transition-colors text-[14px] font-bold ${
+                  useDarkStyle ? 'text-[#1D1D24] dark:text-white' : 'text-white'
+                }`}
+              >
+                {languages.find(l => l.code === locale)?.label || 'AZ'}
+                <svg className="w-4 h-4 transition-transform duration-200 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
+              </button>
+              <div className="absolute top-full left-[-10px] mt-2 w-20 bg-white dark:bg-[#1D1D24] shadow-lg rounded-xl overflow-hidden opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 border border-gray-100 dark:border-gray-800">
+                {languages.map((lng) => (
+                  <button
+                    key={lng.code}
+                    onClick={() => handleLocaleChange(lng.code)}
+                    disabled={isPending}
+                    className={`w-full text-center px-4 py-2 text-[14px] font-bold transition-colors ${
+                      locale === lng.code
+                        ? 'bg-gray-100 dark:bg-gray-800 text-[#1D1D24] dark:text-white'
+                        : 'text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800/50 hover:text-[#1D1D24] dark:hover:text-white'
+                    }`}
+                  >
+                    {lng.label}
+                  </button>
+                ))}
+              </div>
+            </div>
           <ThemeToggle lightContent={!useDarkStyle} isScrolled={isScrolled} />
           <button
             onClick={toggleMenu}

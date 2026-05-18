@@ -34,7 +34,7 @@ const ChevronRight = ({ className }: { className?: string }) => (
   </svg>
 );
 
-import Link from 'next/link';
+import { Link } from '@/i18n/routing';
 import { projects } from '@/lib/data';
 
 export default function FeaturedSection() {
@@ -119,7 +119,6 @@ export default function FeaturedSection() {
             </div>
           </div>
 
-          {/* Navigation Buttons */}
           <div className="absolute top-[143px] -translate-y-1/2 left-0 right-0 pointer-events-none z-20">
             <div className="flex justify-between w-full">
               <button 

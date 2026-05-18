@@ -1,7 +1,7 @@
 "use client";
 
 import { ArrowLeft, Facebook, Twitter, Linkedin, Copy } from "lucide-react";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import { useSearchParams } from "next/navigation";
 import { articles } from "@/constant/articles";
 
@@ -33,7 +33,7 @@ export default function DetailSection() {
 
   return (
     <article className="w-full bg-white relative pb-24">
-      {/* Hero Section */}
+
        <section className="relative w-full h-[85vh] min-h-[600px] lg:min-h-[800px] overflow-hidden flex flex-col justify-end bg-black">
       <img
         src={article.image}

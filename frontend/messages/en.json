@@ -1,0 +1,28 @@
+{
+  "Navigation": {
+    "Home": "Home",
+    "About": "About",
+    "Projects": "Projects",
+    "Blog": "Blog",
+    "Services": "Services",
+    "Contact": "Contact"
+  },
+  "Banner": {
+    "descriptionStart": "We create",
+    "descriptionHighlight": "high-performing",
+    "descriptionEnd": "digital designs that elevate brands and enhance conversions.",
+    "title": "Studiova"
+  },
+  "Solution": {
+    "tag": "Stats & facts",
+    "title": "High quality web design solutions you can trust.",
+    "description": "When selecting a web design agency, it's essential to consider its reputation, experience, and the specific needs of your project.",
+    "stat1Value": "40K+",
+    "stat1Text": "People who have launched their websites",
+    "stat2Value": "238+",
+    "stat2Text": "Experienced professionals ready to assist",
+    "stat3Value": "3M+",
+    "stat3Text": "Support through messages and live consultations",
+    "button": "Who we are"
+  }
+}

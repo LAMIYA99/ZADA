@@ -1,0 +1,28 @@
+{
+  "Navigation": {
+    "Home": "Ana Səhifə",
+    "About": "Haqqımızda",
+    "Projects": "Layihələr",
+    "Blog": "Bloq",
+    "Services": "Xidmətlər",
+    "Contact": "Əlaqə"
+  },
+  "Banner": {
+    "descriptionStart": "Biz brendləri yüksəldən və konversiyaları artıran",
+    "descriptionHighlight": "yüksək performanslı",
+    "descriptionEnd": "rəqəmsal dizaynlar yaradırıq.",
+    "title": "Studiova"
+  },
+  "Solution": {
+    "tag": "Statistikalar və faktlar",
+    "title": "Etibar edə biləcəyiniz yüksək keyfiyyətli veb dizayn həlləri.",
+    "description": "Veb dizayn agentliyi seçərkən onun reputasiyasını, təcrübəsini və layihənizin xüsusi ehtiyaclarını nəzərə almaq vacibdir.",
+    "stat1Value": "40K+",
+    "stat1Text": "Veb saytlarını istifadəyə verən insanlar",
+    "stat2Value": "238+",
+    "stat2Text": "Kömək etməyə hazır olan təcrübəli mütəxəssislər",
+    "stat3Value": "3M+",
+    "stat3Text": "Mesajlar və canlı məsləhətləşmələr vasitəsilə dəstək",
+    "button": "Biz kimik"
+  }
+}

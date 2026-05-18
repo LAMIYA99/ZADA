@@ -24,7 +24,6 @@ export default function PartnersSection() {
         <Logoipsum key="l" icon={<Layers className="text-[#21282C] dark:text-gray-200" size={32} strokeWidth={2.5} />} />,
     ];
 
-    // Combine them 3 times so the marquee has plenty of width to loop seamlessly
     const allLogos = [...logos, ...logos, ...logos];
 
     return (
@@ -44,7 +43,6 @@ export default function PartnersSection() {
             </div>
             
             <div className="w-full relative flex items-center group">
-                {/* Left/Right fading gradients to make it look smooth */}
                 <div className="absolute left-0 top-0 w-24 h-full bg-gradient-to-r from-[#F4F8FA] dark:from-[#121212] to-transparent z-10 pointer-events-none"></div>
                 <div className="absolute right-0 top-0 w-24 h-full bg-gradient-to-l from-[#F4F8FA] dark:from-[#121212] to-transparent z-10 pointer-events-none"></div>
                 

@@ -20,7 +20,6 @@ export default function PresenceSection() {
   return (
     <section className="w-full bg-white text-[#1D1D24] py-24 lg:py-40">
       <div className="max-w-[1710px] mx-auto px-6 md:px-12">
-        {/* Top Section */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-32 mb-32 lg:mb-48">
           <div>
             <h2 className="text-[50px] md:text-[60px] lg:text-[84px] font-bold tracking-tight leading-[1.1]">
@@ -37,7 +36,6 @@ export default function PresenceSection() {
           </div>
         </div>
 
-        {/* Stats Section */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-16 lg:gap-32">
           {stats.map((stat, idx) => (
             <div key={idx} className="flex flex-col">

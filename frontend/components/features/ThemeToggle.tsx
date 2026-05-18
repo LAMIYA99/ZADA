@@ -9,7 +9,6 @@ export function ThemeToggle({ lightContent = false, isScrolled = false }: { ligh
   const { setTheme, theme, resolvedTheme } = useTheme()
   const [mounted, setMounted] = React.useState(false)
 
-  // Avoid hydration mismatch by waiting for mount
   React.useEffect(() => {
     setMounted(true)
   }, [])
@@ -76,7 +75,6 @@ export function ThemeToggle({ lightContent = false, isScrolled = false }: { ligh
         </AnimatePresence>
       </motion.div>
       
-      {/* Decorative stars/dots that appear in dark mode */}
       <AnimatePresence>
         {isDark && (
           <motion.div

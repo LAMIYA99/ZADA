@@ -1,7 +1,7 @@
 "use client";
 
 import React from 'react';
-import Link from 'next/link';
+import { Link } from '@/i18n/routing';
 import Image from 'next/image';
 
 interface ProjectDetailProps {
@@ -27,9 +27,7 @@ export default function ProjectDetailSection({ project }: ProjectDetailProps) {
 
   return (
     <div className="w-full bg-white text-[#1D1D24]">
-      {/* Hero Banner */}
       <section className="relative w-full h-[60vh] min-h-[500px] lg:h-[80vh] flex items-end pb-12 lg:pb-20">
-        {/* Background Image */}
         <div className="absolute inset-0 w-full h-full">
           <img 
             src={project.image || fallbackImage} 
@@ -39,11 +37,9 @@ export default function ProjectDetailSection({ project }: ProjectDetailProps) {
               e.currentTarget.src = fallbackImage;
             }}
           />
-          {/* Dark Overlay */}
           <div className="absolute inset-0 bg-black/40"></div>
         </div>
 
-        {/* Hero Content */}
         <div className="relative z-10 max-w-[1710px] mx-auto px-6 md:px-12 w-full flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div className="flex flex-col max-w-[800px]">
             <div className="flex items-start gap-4 mb-6">
@@ -71,9 +67,7 @@ export default function ProjectDetailSection({ project }: ProjectDetailProps) {
         </div>
       </section>
 
-      {/* Details Section */}
       <section className="max-w-[1710px] mx-auto px-6 md:px-12 py-16 lg:py-24">
-        {/* Back Button & Meta Grid */}
         <div className="flex flex-col gap-16 mb-24">
           <Link href="/" className="w-max h-12 rounded-full bg-[#C1FE72] flex items-center justify-between p-1.5 pl-5 group transition-colors hover:bg-[#aee63a]">
             <span className="font-semibold text-[#1D1D24] text-[15px] mr-4">Back</span>
@@ -107,7 +101,6 @@ export default function ProjectDetailSection({ project }: ProjectDetailProps) {
           </div>
         </div>
 
-        {/* Description Section */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 mb-32">
           <div className="lg:col-span-4">
             <h2 className="text-[40px] md:text-[56px] font-bold tracking-tight text-[#1D1D24]">
@@ -122,7 +115,6 @@ export default function ProjectDetailSection({ project }: ProjectDetailProps) {
           </div>
         </div>
 
-        {/* Gallery Section */}
         {project.gallery && project.gallery.length > 0 && (
           <div className="w-full">
             <div className="mb-12">

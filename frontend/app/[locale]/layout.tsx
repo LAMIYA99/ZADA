@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
-import "./globals.css";
+import "../globals.css";
 import MainLayout from "@/components/layout/MainLayout";
 import TanstackQueryProvider from "@/providers/TanstackQueryProvider";
 import { Toaster } from "react-hot-toast";
 import AOSInit from "@/components/common/AOSInit";
 import { ThemeProvider } from "@/components/features/theme-provider";
+import { NextIntlClientProvider } from "next-intl";
+import { getMessages } from "next-intl/server";
 
 const fontManrope= Manrope({
   weight: ["400", "700"],
@@ -26,19 +28,22 @@ export default async function RootLayout({
   params: Promise<{ locale: string }>;
 }>) {
   const { locale } = await params;
+  const messages = await getMessages();
 
   return (
     <html lang={locale} suppressHydrationWarning>
       <body className={`${fontManrope.variable} antialiased bg-white dark:bg-[#1D1D24] text-gray-900 dark:text-gray-100 transition-colors duration-500`}>
-        <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
-          <TanstackQueryProvider>
-            <AOSInit />
-            <Toaster position="top-center" />
-            <MainLayout>
-              {children}
-            </MainLayout>
-          </TanstackQueryProvider>
-        </ThemeProvider>
+        <NextIntlClientProvider messages={messages}>
+          <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
+            <TanstackQueryProvider>
+              <AOSInit />
+              <Toaster position="top-center" />
+              <MainLayout>
+                {children}
+              </MainLayout>
+            </TanstackQueryProvider>
+          </ThemeProvider>
+        </NextIntlClientProvider>
       </body>
     </html>
   );

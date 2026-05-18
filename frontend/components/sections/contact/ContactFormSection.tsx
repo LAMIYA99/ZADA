@@ -1,6 +1,6 @@
 
 
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import { ArrowUpRight } from "lucide-react";
 
 const ArrowUpRightIcon = ({ className }: { className?: string }) => (

@@ -6,7 +6,6 @@ export default function Loading() {
   return (
     <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-[#1D1D24]">
       <div className="relative flex flex-col items-center">
-        {/* Animated Circle */}
         <motion.div
           animate={{
             rotate: 360,
@@ -19,7 +18,6 @@ export default function Loading() {
           className="w-24 h-24 border-2 border-[#C1FE72]/20 border-t-[#C1FE72] rounded-full"
         />
         
-        {/* Center Logo/Icon */}
         <motion.div
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -31,7 +29,6 @@ export default function Loading() {
           </div>
         </motion.div>
 
-        {/* Loading Text */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}

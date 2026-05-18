@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 
 const ArrowUpRight = ({ className }: { className?: string }) => (
   <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -34,7 +34,6 @@ export default function Footer() {
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-0 mb-32">
           
-          {/* Left Side: Title & Contact */}
           <div className="col-span-1 sm:col-span-2 lg:col-span-4 flex flex-col">
             <h2 className="text-[44px] md:text-[56px] lg:text-[64px] font-bold leading-[1.05] tracking-tight mb-12">
               Build something<br />together?
@@ -57,7 +56,6 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Middle Side: Pages */}
           <div className="lg:col-span-2 lg:col-start-6 flex flex-col gap-3 lg:mt-[10px]">
             {['Home', 'About', 'Services', 'Work', 'Terms', 'Privacy Policy', 'Error 404'].map(link => (
               <a 
@@ -70,7 +68,6 @@ export default function Footer() {
             ))}
           </div>
 
-          {/* Right-Middle Side: Socials */}
           <div className="lg:col-span-2 flex flex-col gap-3 lg:mt-[10px]">
             {['Facebook', 'Instagram', 'Twitter'].map(link => (
               <a 
@@ -83,7 +80,6 @@ export default function Footer() {
             ))}
           </div>
 
-          {/* Far Right Side: Copyright */}
           <div className="lg:col-span-3 lg:text-right lg:mt-[10px]">
             <p className="text-[#DFDFDF] dark:text-gray-500 text-[14px]">
               © Studiova copyright 2025
@@ -92,7 +88,6 @@ export default function Footer() {
           
         </div>
 
-        {/* Bottom Section */}
         <div className="relative flex justify-center items-center w-full mt-24">
           <p className="text-[#DFDFDF] dark:text-gray-500 text-[14px]">
             Distributed by <span className="text-white">ThemeWagon</span>
